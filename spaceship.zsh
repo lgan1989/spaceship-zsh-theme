@@ -65,7 +65,7 @@ spaceship_host() {
 # Current directory.
 # Return only three last items of path
 spaceship_current_dir() {
-  echo -n "%{$fg_bold[cyan]%}"
+  echo -n "%{$fg_bold[blue]%}"
   echo -n "%${SPACESHIP_PROMPT_TRUNC}~";
   echo -n "%{$reset_color%}"
 }
@@ -187,7 +187,7 @@ spaceship_nvm_status() {
   nvm_status=${nvm_status}
 
   echo -n " %Bvia%b "
-  echo -n "%{$fg_bold[blue]%}"
+  echo -n "%{$fg_bold[cyan]%}"
   echo -n "${SPACESHIP_NVM_SYMBOL} ${nvm_status}"
   echo -n "%{$reset_color%}"
 }
