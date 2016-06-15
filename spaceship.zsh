@@ -146,12 +146,13 @@ spaceship_git_status() {
     indicators+="$(spaceship_git_unpushed_unpulled)"
 
 
-    local dirty=$(parse_git_dirty)
 
     [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
     echo -n " %Bon%b "
     echo -n "%{$fg_bold[green]%}"
+
+    local dirty=$(parse_git_dirty)
     if [[ -n $dirty ]]; then
       echo -n "%{$fg_bold[yellow]%}"
     fi
