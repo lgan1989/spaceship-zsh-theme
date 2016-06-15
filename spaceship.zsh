@@ -145,13 +145,17 @@ spaceship_git_status() {
     indicators+="$(spaceship_git_stashed)"
     indicators+="$(spaceship_git_unpushed_unpulled)"
 
+
+    local dirty=$(parse_git_dirty)
+
     [ -n "${indicators}" ] && indicators=" [${indicators}]";
 
     echo -n " %Bon%b "
-    echo -n "%{$fg_bold[magenta]%}"
+    echo -n "%{$fg_bold[green]%}"
+    if [[ -n $dirty ]]; then
+      echo -n "%{$fg_bold[yellow]%}"
+    fi
     echo -n "$(git_current_branch)"
-    echo -n "%{$reset_color%}"
-    echo -n "%{$fg_bold[red]%}"
     echo -n "%{$indicators%}"
     echo -n "%{$reset_color%}"
   fi
@@ -182,7 +186,7 @@ spaceship_nvm_status() {
   nvm_status=${nvm_status}
 
   echo -n " %Bvia%b "
-  echo -n "%{$fg_bold[green]%}"
+  echo -n "%{$fg_bold[blue]%}"
   echo -n "${SPACESHIP_NVM_SYMBOL} ${nvm_status}"
   echo -n "%{$reset_color%}"
 }
